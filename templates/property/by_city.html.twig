@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalogue
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<h1 class="text-dark">
+			<i class="fas fa-caret-right text-info" style="margin-right:10px;"></i>
+			Votre recherche
+		</h1>
+
+		<div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+			{% for property in properties %}
+				<div class="col" style="margin-bottom:30px;">
+					<a href="{{ path('property.showone', {id:property.id}) }}" style="color:black;">
+						<div class="card h-100">
+							<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
+							<div class="card-body">
+								<h5 class="card-title">
+									{{ property.title }}
+								</h5>
+								<p class="card-text">
+									{{ property.city }}
+									-
+									{{ property.postal_code }}
+								</p>
+								<p class="card-text">
+									Mise en ligne le
+									{{ property.created_at }}
+								</p>
+							</div>
+							<div class="text-center" style="margin-bottom:-18px;">
+								<button class="btn btn-info btn-rounded" style="letter-spacing:1.5px;font-size:15px;">
+									{{ property.getFormattedPrice }}
+									$
+								</button>
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+
+	</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5 mb-4">
+		<h1 class="text-dark">
+			<i class="fas fa-caret-right text-info" style="margin-right:10px;"></i>
+			Agence immobilière
+		</h1>
+
+		<br>
+		<div
+			class="container mt-4 mb-4 d-flex justify-content-center text-center">
+
+			<!--ville-->
+			<th scope="col">
+				<form class="form-inline mt-1" method="POST" action="{{ path('properties.findallequal', {champ: 'city'}) }}" style="border-bottom:solid 3px black;padding:25px;margin-right:70px;">
+					<div class="form-group mr-1 mb-2">
+						<label for="" style="font-size:22px;color:black;letter-spacing:0.9px;">Entrez le nom d'une ville
+							<i class="fas fa-level-down-alt text-info"></i>
+						</label>
+						<br><br>
+						<input type="text" name="recherche" style="width:280px;border-radius:1px;" class="btn btn-outline-dark">
+					</div>
+					<br>
+
+					<button type="submit" class="btn btn-dark mb-2 btn-sm" style="letter-spacing:2px;font-size:12px;padding:15px;width:280px;border-radius:1px;">Rechercher</button>
+				</form>
+			</th>
+
+			<!--prix-->
+			<th scope="col">
+				<form class="form-inline mt-1" method="POST" action="{{ path('properties.findbyprice', {champ: 'price'}) }}" style="border-bottom:solid 3px black;padding:25px;margin-left:70px;">
+					<div class="form-group mr-1 mb-2">
+						<label for="" style="font-size:22px;color:black;letter-spacing:0.9px;">Indiquez-nous un prix
+							<i class="fas fa-level-down-alt text-info"></i>
+						</label>
+						<br><br>
+						<input type="text" name="recherche" style="width:280px;border-radius:1px;" class="btn btn-outline-dark">
+					</div>
+					<br>
+
+					<button type="submit" class="btn btn-dark mb-2 btn-sm" style="letter-spacing:2px;font-size:12px;padding:15px;width:280px;border-radius:1px;">Rechercher</button>
+				</form>
+			</th>
+
+		</div>
+		<br>
+
+		<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+			{% for property in properties %}
+				<div class="col" style="margin-bottom:30px;">
+					<a href="{{ path('property.showone', {id:property.id}) }}" style="color:black;">
+						<div class="card h-100">
+							<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
+							<div class="card-body">
+								<h5 class="card-title">
+									{{ property.title }}
+								</h5>
+								<p class="card-text">
+									{{ property.city }}
+									-
+									{{ property.postal_code }}
+								</p>
+								<p class="card-text">
+									Mise en ligne le
+									{{ property.created_at }}
+								</p>
+							</div>
+							<div class="text-center" style="margin-bottom:-18px;">
+								<button class="btn btn-info btn-rounded" style="letter-spacing:1.5px;font-size:15px;">
+									{{ property.getFormattedPrice }}
+									$
+								</button>
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+
+		<br><br><br>
+		<a class="d-flex justify-content-center" href="{{ path('property.index') }}">
+			<button class="btn btn-dark" style="font-size:14px;letter-spacing:2px;border-radius:1px;padding:15px;padding-left:20px;padding-right:20px;">
+
+				<i class="fas fa-caret-right text-info"></i>
+				Consulter le catalogue
+
+			</button>
+		</a>
+		<br><br>
+	</div>
+{% endblock %}

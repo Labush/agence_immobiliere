@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<br><br><br>
+	<div class="container">
+		<h1 class="card-title text-info text-center" style="text-transform:uppercase;letter-spacing:1.5px;">
+			{{ property.title }}
+		</h1>
+		<br><br>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<h5 class="card-title text-dark mt-5 mb-5" style="width:100%;padding:10px;font-weight:lighter;">
+			{{ property.description }}
+		</h5>
+		<br>
+
+		<div class="container overflow-hidden mb-5" style="margin-left:1%;">
+			<div class="row gy-5">
+				<div class="col-4 bg-info text-white" style="margin-right:20px;">
+					<div class="p-3">
+						<h5>
+							<i class="fas fa-caret-right text-dark" style="margin-right:10px;"></i>
+							{{ property.surface }}
+							m²
+						</h5>
+					</div>
+				</div>
+				<div class="col-4 bg-info text-white">
+					<div class="p-3">
+						<h5>
+							<i class="fas fa-caret-right text-dark" style="margin-right:10px;"></i>
+							{{ property.rooms }}
+							pièce(s)
+						</h5>
+					</div>
+				</div>
+
+
+				<div class="col-4 bg-info text-white" style="margin-right:20px;">
+					<div class=" p-3">
+						<h5>
+							<i class="fas fa-caret-right text-dark" style="margin-right:10px;"></i>
+							{{ property.bedrooms }}
+							chambre(s)
+						</h5>
+					</div>
+				</div>
+				<div class="col-4 bg-info text-white" style="margin-right:20px;">
+					<div class="p-3">
+						<h5>
+							<i class="fas fa-caret-right text-dark" style="margin-right:10px;"></i>
+							{{ property.floor }}
+							étage(s)
+						</h5>
+					</div>
+				</div>
+				<!--->
+				<!-->
+				<div class="col-3 bg-dark text-white">
+					<div class="p-3">
+						<h5>
+							<i class="fas fa-caret-right text-info" style="margin-right:10px;"></i>
+							{{ property.getFormattedPrice }}
+							€
+						</h5>
+					</div>
+				</div>
+				<!--->
+				<!-->
+			</div>
+		</div>
+
+		<br><br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+			</div>
+		</div>
+
+		<div class="container mt-5 mb-5">
+			<div class="row">
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+				<div class="col-md">
+					<img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt=""/>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<style>
+		.card-img-top {
+			border-radius: 6px;
+		}
+	</style>
+{% endblock %}
